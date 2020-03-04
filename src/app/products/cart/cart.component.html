@@ -1,0 +1,52 @@
+
+<!-- first nav bar -->
+<nav class="navbar navbar-light navbar-expand-md navbar-dark bg-primary justify-content-center">
+    <a href="/" class="navbar-brand d-flex w-50 mr-auto">Ecommerce App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+        <ul class="navbar-nav w-100 justify-content-center">
+            <li class="nav-item">
+                <a  href="#"><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></a>
+            </li>
+            
+        </ul>
+    </div>
+  </nav>
+
+
+  <table class="table table-border table-striped">
+      <thead>
+          <tr>
+              <th>Quantity</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Subtotal</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of items">
+              <td>
+                  <input type="number" [value]="item.quantity" (change)="updateQuantity($event.target.value,item.product)">
+              </td>
+              <td>{{item.product.name}}</td>
+              <td>{{item.product.price}}</td>
+              <td>{{item.total()}}</td>
+              <td>
+                <a class="nav-link" href="javascript:void(0)" (click)="removeItem(item.product)"><span><i class="fa fa-trash"></i></span></a></td>
+
+          </tr>
+
+          <tr *ngIf="items.length==0">
+          <td>Your cart is empty</td>
+          </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="3">Total</td>
+              <td>{{cartPrice}}</td>
+
+          </tr>
+      </tfoot>
+  </table>

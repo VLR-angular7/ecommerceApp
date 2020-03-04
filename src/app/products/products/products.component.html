@@ -1,0 +1,96 @@
+<!-- first nav bar -->
+<nav class="navbar navbar-light navbar-expand-md navbar-dark bg-primary justify-content-center">
+    <a href="/" class="navbar-brand d-flex w-50 mr-auto">Ecommerce App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+        <ul class="navbar-nav w-100 justify-content-center">
+            <li class="nav-item">
+                <a  href="#"><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></a>
+            </li>
+            
+        </ul>
+        <ul class="nav navbar-nav ml-auto w-100 justify-content-end nav-right-color">
+            <li class="nav-item pr-2">
+                <a class="nav-link" href="#">Adimn</a>
+            </li>
+            <li class="nav-item">
+              <span>{{quantity}} item(s)</span>
+              <span>cart Value -{{price}}</span>
+
+                <a class="nav-link" href="javascript:void(0)" (click)="gotoCart()"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
+            </li>
+            
+        </ul>
+    </div>
+  </nav>
+  <!-- first nav bar -->
+  
+  <!-- second nav bar -->
+  <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white  pb-3">
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto nav-margin nav-link-cust">
+        <li class="nav-item  ml-5 ">
+          <a class="nav-link " href="#" [class.active]="null==selectedCategory" (click)="getProductsByCategory(null)">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [class.active]="'books'==selectedCategory" (click)="getProductsByCategory('books')">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [class.active]="'electronics'==selectedCategory" (click)="getProductsByCategory('electronics')">Electronics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"  (click)="getProductsByCategory('men')">Men</a>
+        </li>
+       
+        
+      </ul>
+      
+    </div>
+  </nav>
+  </div>
+  
+  <!-- second nav bar -->
+  
+  
+  <!-- cards section -->
+  <!-- <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-3 mt-3" *ngFor='let mobile of mobileTypes;'>
+        <div class="card card-image">
+          <img src="{{mobile.image}}" class="card-img-top" alt="{{mobile.image}}">
+          <div class="card-body">
+            <h5 class="card-title">{{mobile.name}}</h5>
+            <p class="card-text">{{mobile.price | currency:'CAD'}}</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+  <!-- cards section -->
+
+
+  <div class="container mt-4">
+      <div class="row">
+          <div class="col-md-3 mt-3" *ngFor='let product of products;'>
+            <div class="card card-image">
+                <img class="card-img-top" src="{{product.image}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{product.name}}</h5>
+                  <p class="card-text">{{product.price | currency:'CAD' }}</p>
+                  <a href="javascript:void(0)" class="btn btn-primary" (click)="addToCart(product)">Add to cart</a>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
