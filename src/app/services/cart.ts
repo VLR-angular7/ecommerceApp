@@ -1,5 +1,5 @@
 export class Cart {
-    constructor(private product,private quantity){
+    constructor(private product,public quantity){
 
     }
     

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
 import {CartService} from '../../services/cart.service'
 
 @Component({
@@ -8,7 +9,7 @@ import {CartService} from '../../services/cart.service'
 })
 export class CartComponent implements OnInit {
 
-  constructor(private cartService:CartService) { }
+  constructor(private cartService:CartService,private route:Router) { }
 items:any[]=[];
 cartPrice:number
   ngOnInit() {
@@ -28,6 +29,10 @@ cartPrice:number
   removeItem(product){
     this.cartService.removeItem(product);
     this.cartPrice=this.cartService.itemPrice;
+  }
+
+  gotoCheckout(){
+this.route.navigate(['/orders'])
   }
 
 }
