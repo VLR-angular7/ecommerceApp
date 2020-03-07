@@ -46,6 +46,10 @@ this.products=this.data.filter(product=> category == null || category==product.c
     this.route.navigate(['/cart'])
   }
 
+  gotoAdmin(){
+    this.route.navigate(['/login'])
+  }
+
   addToCart(product){
     // console.log(product);
     this.CartService.addToCart(product);

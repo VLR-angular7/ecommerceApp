@@ -1,0 +1,36 @@
+//css
+
+.nav-right-color>li>a{
+    color:#fff;
+}
+.bg-white{
+    color:#fff;
+    border-bottom: 1px solid lightgray;
+}
+.nav-margin>li{
+  margin-right: 150px;
+}
+.nav-link-cust > li {
+    float: left;
+    position: relative;
+  }
+  // .nav-link-cust  .active a::after {
+  //   border-bottom: 5px solid #007bff;
+  //   bottom: 0px;
+  //   content: " ";
+  //   left: 0;
+  //   position: absolute;
+  //   right: 0;
+  // }
+  .nav-link-cust>li>a{
+    color:#000;
+}
+.card-image>img{
+    width:50%;
+    margin:0 auto;
+}
+
+.active{
+  border-bottom: 5px solid #007bff;
+
+}

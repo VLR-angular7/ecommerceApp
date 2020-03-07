@@ -1,0 +1,76 @@
+<nav class="navbar navbar-light navbar-expand-md navbar-dark bg-primary justify-content-center">
+    <a href="/" class="navbar-brand d-flex w-50 mr-auto">Ecommerce App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+        <ul class="navbar-nav w-100 justify-content-center">
+            <li class="nav-item">
+                <a  href="#"><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></a>
+            </li>
+            
+        </ul>
+        <!-- <ul class="nav navbar-nav ml-auto w-100 justify-content-end nav-right-color">
+            <li class="nav-item pr-2">
+                <a class="nav-link" href="javascript:void(0)" (click)="gotoAdmin()">Adimn</a>
+            </li>
+            <li class="nav-item">
+              <span>{{quantity}} item(s)</span>
+              <span>cart Value -{{price}}</span>
+
+                <a class="nav-link" href="javascript:void(0)" (click)="gotoCart()"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
+            </li>
+            
+        </ul> -->
+    </div>
+  </nav>
+
+   
+  <!-- second nav bar -->
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white  pb-3">
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto nav-margin nav-link-cust">
+          <li class="nav-item  ml-5 ">
+            <a class="nav-link " href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Orders</a>
+          </li>
+         
+          
+        </ul>
+        
+      </div>
+    </nav>
+    </div>
+
+
+    <table class="table table-border">
+        <thead>
+<tr>
+    <th>Id</th>
+    <th>Product Name</th>
+    <th>Product Price</th>
+    <th>Product Category</th>
+    <th>Edit</th>
+    <th>delete</th>
+</tr>
+        </thead>
+        <tbody>
+         <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+             <td>{{product.name}}</td>
+             <td>{{product.price |currency:usd}}</td>
+             <td>{{product.category}}</td>
+             <td><button class="btn btn-primary">Edit</button></td>
+             <td><button class="btn btn-danger">Delete</button></td>
+
+         </tr>
+        </tbody>
+    </table>
