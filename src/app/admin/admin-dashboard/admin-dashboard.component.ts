@@ -8,12 +8,36 @@ import {ProductServiceService} from '../../services/product-service.service'
 })
 export class AdminDashboardComponent implements OnInit {
 products:any=[];
+product:any={};
   constructor(private prodService:ProductServiceService) { }
 
   ngOnInit() {
-this.prodService.getAllProducts().subscribe(data=>{
-  this.products=data;
-})
+this.getAllProducts();
+  }
+
+
+  getAllProducts(){
+    this.prodService.getAllProducts().subscribe(data=>{
+      this.products=data;
+    })
+  }
+
+  editProduct(currentProduct){
+    this.product=currentProduct;
+  }
+
+
+  updateProduct(){
+    this.prodService.updateProduct(this.product).subscribe(data=>{
+    })
+  }
+
+
+  deleteProduct(currentProduct){
+    this.prodService.deleteProduct(currentProduct).subscribe(data=>{
+      alert("product deleted successfully")
+     this.getAllProducts();
+    })
   }
 
 }

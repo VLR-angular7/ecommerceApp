@@ -2,30 +2,9 @@
   "products": [
     {
       "id": 1,
-      "name": "Red Mi",
-      "price": 1250,
-      "image": "assets/images/mobile-1.jpeg",
-      "category": "electronics"
-    },
-    {
-      "id": 2,
-      "name": "OPPO",
+      "name": "OPPO12",
       "price": 2250,
       "image": "assets/images/mobile-2.jpeg",
-      "category": "electronics"
-    },
-    {
-      "id": 3,
-      "name": "Real Me",
-      "price": 1246,
-      "image": "assets/images/mobile-3.jpeg",
-      "category": "electronics"
-    },
-    {
-      "id": 4,
-      "name": "ViVo",
-      "price": 1436,
-      "image": "assets/images/mobile-4.jpeg",
       "category": "electronics"
     },
     {
@@ -34,41 +13,6 @@
       "price": 1552,
       "image": "assets/images/mobile-5.jpeg",
       "category": "electronics"
-    },
-    {
-      "id": 6,
-      "name": "Sony",
-      "price": 1356,
-      "image": "assets/images/mobile-6.jpeg",
-      "category": "electronics"
-    },
-    {
-      "id": 7,
-      "name": "Rich Dad poor Dad",
-      "price": 1356,
-      "image": "assets/images/book1.jpeg",
-      "category": "books"
-    },
-    {
-      "id": 8,
-      "name": "You can win",
-      "price": 1356,
-      "image": "assets/images/book2.jpeg",
-      "category": "books"
-    },
-    {
-      "id": 9,
-      "name": "Think and Grow Rich",
-      "price": 1356,
-      "image": "assets/images/book3.jpeg",
-      "category": "books"
-    },
-    {
-      "id": 10,
-      "name": "Daily Inspiration",
-      "price": 1356,
-      "image": "assets/images/book4.jpeg",
-      "category": "books"
     }
   ],
   "orders": [

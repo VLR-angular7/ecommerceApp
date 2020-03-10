@@ -12,4 +12,17 @@ export class ProductServiceService {
     return this.http.get("http://localhost:3000/products")
      
   }
+
+
+  updateProduct(productData){
+    console.log(productData)
+    return this.http.put("http://localhost:3000/products/"+productData.id,productData)
+  }
+
+  deleteProduct(productData){
+    return this.http.delete("http://localhost:3000/products/"+productData.id)
+
+  }
 }
+
+
