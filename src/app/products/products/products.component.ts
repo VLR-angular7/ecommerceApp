@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
   data:any=[];
   quantity:number;
   price:number;
-  selectedCategory=null
+  selectedCategory=null;
 
   ngOnInit() {
     this.productService.getAllProducts().subscribe(productData=>{

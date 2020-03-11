@@ -37,10 +37,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto nav-margin nav-link-cust">
           <li class="nav-item  ml-5 ">
-            <a class="nav-link " href="#">Products</a>
+            <a class="nav-link " href="javascript:void(0)" [class.active]="'products'==selectedMenu" (click)="getData('products')">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Orders</a>
+            <a class="nav-link" href="javascript:void(0)" [class.active]="'orders'==selectedMenu" (click)="getData('orders')">Orders</a>
+          </li>
+
+          <li class="nav-item">
+            <button type="button" class="btn btn-primary" >Logout</button>
           </li>
          
           
@@ -51,7 +55,17 @@
     </div>
 
 
-    <table class="table table-border">
+<div *ngIf="showProductData" class="container">
+
+  <div class="row">
+    <button style="margin:14px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="openAddproductModel()">Add Product</button>
+
+  </div>
+
+
+
+
+    <table   class="table table-border">
         <thead>
 <tr>
     <th>Id</th>
@@ -76,13 +90,47 @@
     </table>
 
 
+</div>
 
+
+
+<div *ngIf="showOrderData" class="container">
+  
+  <table   class="table table-border">
+    <thead>
+<tr>
+<th>Name</th>
+<th>Address</th>
+<th>City</th>
+<th>State</th>
+<th>Product Count</th>
+<th>Product Price</th>
+
+<th>Items</th>
+</tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let order of orders">
+<td>{{order.address.name}}</td>
+<td>{{order.address.address}}</td>
+<td>{{order.address.city}}</td>
+<td>{{order.address.state}}</td>
+<td>{{order.itemCount}}</td>
+<td>{{order.itemPrice}}</td>
+<td>{{order.items}}</td>
+
+
+     </tr>
+    </tbody>
+</table>
+
+</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -100,14 +148,20 @@
                 </div>
                 <div class="form-group">
                   <label for="city">Product Category</label>
-                  <input type="text" class="form-control" id="city" [(ngModel)]="product.category" name="city">
+                  <input type="text" class="form-control" id="category" [(ngModel)]="product.category" name="category">
+                </div>
+                <div class="form-group">
+                  <label for="city">Product Image</label>
+                  <input type="text" class="form-control" id="image" [(ngModel)]="product.image" name="image">
                 </div>
                 </form>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="updateProduct()" data-dismiss="modal">Update</button>
+        <button *ngIf="showAddBtn" type="button" class="btn btn-primary" (click)="addProduct()" data-dismiss="modal">Add</button>
+        <button *ngIf="showUpdateBtn" type="button" class="btn btn-primary" (click)="updateProduct()" data-dismiss="modal">Update</button>
+
       </div>
     </div>
   </div>

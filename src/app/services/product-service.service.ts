@@ -10,9 +10,16 @@ export class ProductServiceService {
 
   getAllProducts(){
     return this.http.get("http://localhost:3000/products")
-     
   }
 
+  getAllOrders(){
+    return this.http.get("http://localhost:3000/orders")
+  }
+
+  addProduct(productData){
+    return this.http.post("http://localhost:3000/products/",productData)
+
+  }
 
   updateProduct(productData){
     console.log(productData)
