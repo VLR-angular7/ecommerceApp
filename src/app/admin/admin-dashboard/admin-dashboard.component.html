@@ -103,10 +103,9 @@
 <th>Address</th>
 <th>City</th>
 <th>State</th>
-<th>Product Count</th>
-<th>Product Price</th>
-
-<th>Items</th>
+<th>Total Count</th>
+<th>Total Price</th>
+<th>Cart Items</th>
 </tr>
     </thead>
     <tbody>
@@ -117,7 +116,27 @@
 <td>{{order.address.state}}</td>
 <td>{{order.itemCount}}</td>
 <td>{{order.itemPrice}}</td>
-<td>{{order.items}}</td>
+
+<!-- {{order.items}} -->
+<!-- <td>
+  <ul>
+    <li *ngFor="let item of order.items">{{item.product.name}} - {{item.quantity}}</li>
+  </ul>
+</td> -->
+
+<td>
+<tr>
+  <th>Item Name</th>
+  <th>Item Quantity</th>
+  <th>Item Price</th>
+</tr>
+
+<tr *ngFor="let item of order.items">
+<td>{{item.product.name}}</td>
+<td>{{item.quantity}}</td>
+<td>{{item.product.price}}</td>
+</tr>
+</td>
 
 
      </tr>

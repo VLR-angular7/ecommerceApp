@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductServiceService} from'../../services/product-service.service';
 import {CartService} from'../../services/cart.service';
+import {CommonService} from'../../services/common.service';
+
 
 import {Router} from '@angular/router';
 
@@ -11,7 +13,7 @@ import {Router} from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private productService :ProductServiceService,private route:Router,private CartService:CartService) { }
+  constructor(private productService :ProductServiceService,private route:Router,private CartService:CartService,private commonService:CommonService) { }
   products:any=[];
   data:any=[];
   quantity:number;
@@ -48,6 +50,11 @@ this.products=this.data.filter(product=> category == null || category==product.c
 
   gotoAdmin(){
     this.route.navigate(['/login'])
+  }
+
+  gotoDetail(product){
+    this.route.navigate(['/productDetail']);
+    this.commonService.sendData(product.name)
   }
 
   addToCart(product){

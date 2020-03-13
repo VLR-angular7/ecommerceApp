@@ -5,6 +5,8 @@ import { CartComponent } from './products/cart/cart.component';
 import { OrdersComponent } from './products/orders/orders.component';
 import {LoginComponent}    from './admin/login/login.component'
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AuthGuard } from './services/auth.guard';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 const routes: Routes = [
@@ -14,11 +16,16 @@ const routes: Routes = [
   },
   {
     path:'cart',
-    component:CartComponent
+    component:CartComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'orders',
     component:OrdersComponent
+  },
+  {
+    path:'productDetail',
+    component:ProductDetailComponent
   },
   {
     path:'login',
@@ -26,7 +33,8 @@ const routes: Routes = [
   },
   {
     path:'admin',
-    component:AdminDashboardComponent
+    component:AdminDashboardComponent,
+    canActivate:[AuthGuard]
   }
 ];
 
